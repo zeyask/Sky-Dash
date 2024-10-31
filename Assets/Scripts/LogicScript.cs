@@ -8,14 +8,14 @@ public class LogicScript : MonoBehaviour
 {
    public int playerScore;
    public Text Scoretext;
-   public Text HighscoreText; // Highscore-Textfeld für den UI-Anzeige
+   public Text HighscoreText; 
    public GameObject gameOverScreen;
    public AudioSource scoreSound;
    private int highScore;
 
     void Start()
     {
-        // Lade den gespeicherten Highscore bei Spielstart
+        
         highScore = PlayerPrefs.GetInt("Highscore", 0);
         HighscoreText.text = "Highscore: " + highScore.ToString();
     }
@@ -27,13 +27,13 @@ public class LogicScript : MonoBehaviour
         Scoretext.text = playerScore.ToString();
         scoreSound.Play();
 
-        // Überprüfen, ob ein neuer Highscore erreicht wurde
+        
         if (playerScore > highScore)
         {
             highScore = playerScore;
             HighscoreText.text = "Highscore: " + highScore.ToString();
-            PlayerPrefs.SetInt("Highscore", highScore); // Speichere den neuen Highscore
-            PlayerPrefs.Save(); // Speichert die Änderungen sofort auf die Festplatte
+            PlayerPrefs.SetInt("Highscore", highScore); 
+            PlayerPrefs.Save(); 
         }
     }
 
